@@ -9,21 +9,29 @@ import UIKit
 
 class ContactInfoVC: UIViewController {
 
+    @IBOutlet weak var contactPhoneText: UITextField!
+    @IBOutlet weak var contactNameText: UITextField!
+    
+    var contact:Contacts?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let c = contact {
+            contactNameText.text = c.contact_name
+            contactPhoneText.text = c.contact_phone
+        }
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func editButton(_ sender: Any) {
+        if let c = contact, let name = contactNameText.text, let phone = contactPhoneText.text {
+            edit(contact_id: c.contact_id! , contact_name: name, contact_phone: phone)
+        }
     }
-    */
+    
+    func edit (contact_id:Int,contact_name:String,contact_phone:String){
+        print("Edit: \(contact_id) - \(contact_name) - \(contact_phone)")
+    }
 
 }
