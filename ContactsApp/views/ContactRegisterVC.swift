@@ -11,6 +11,8 @@ class ContactRegisterVC: UIViewController {
 
     @IBOutlet weak var contactNameText: UITextField!
     @IBOutlet weak var contactPhoneText: UITextField!
+    
+    var viewModel = ContactRegisterViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,15 +21,12 @@ class ContactRegisterVC: UIViewController {
 
     @IBAction func saveButton(_ sender: Any) {
         if let name = contactNameText.text, let phone = contactPhoneText.text {
-            save(contactName:name, contactPhone:phone)
+            viewModel.save(contactName:name, contactPhone:phone)
         }
         navigationController?.popToRootViewController(animated: true)
         
     }
     
-    func save (contactName:String,contactPhone:String){
-        print("Kişi Kaydedildi: \(contactName) - \(contactPhone)")
-    }
     
     
 }

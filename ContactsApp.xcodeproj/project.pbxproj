@@ -17,6 +17,11 @@
 		C007ADDA2BEBB470005D6950 /* ContactInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C007ADD92BEBB470005D6950 /* ContactInfoVC.swift */; };
 		C007ADDF2BEBC78E005D6950 /* ContactsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C007ADDE2BEBC78E005D6950 /* ContactsCell.swift */; };
 		C007ADE22BEBCC7A005D6950 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C007ADE12BEBCC7A005D6950 /* Contacts.swift */; };
+		C0C96B6B2BFCA1190012A9FE /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C0C96B6A2BFCA1190012A9FE /* RxSwift */; };
+		C0C96B6E2BFCA1AE0012A9FE /* ContactsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C96B6D2BFCA1AE0012A9FE /* ContactsRepository.swift */; };
+		C0C96B712BFCA1F90012A9FE /* HomepageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C96B702BFCA1F90012A9FE /* HomepageViewModel.swift */; };
+		C0C96B732BFCA20D0012A9FE /* ContactRegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C96B722BFCA20D0012A9FE /* ContactRegisterViewModel.swift */; };
+		C0C96B752BFCA2200012A9FE /* ContactInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C96B742BFCA2200012A9FE /* ContactInfoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,10 @@
 		C007ADD92BEBB470005D6950 /* ContactInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoVC.swift; sourceTree = "<group>"; };
 		C007ADDE2BEBC78E005D6950 /* ContactsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCell.swift; sourceTree = "<group>"; };
 		C007ADE12BEBCC7A005D6950 /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		C0C96B6D2BFCA1AE0012A9FE /* ContactsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRepository.swift; sourceTree = "<group>"; };
+		C0C96B702BFCA1F90012A9FE /* HomepageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewModel.swift; sourceTree = "<group>"; };
+		C0C96B722BFCA20D0012A9FE /* ContactRegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRegisterViewModel.swift; sourceTree = "<group>"; };
+		C0C96B742BFCA2200012A9FE /* ContactInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0C96B6B2BFCA1190012A9FE /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +60,7 @@
 			children = (
 				C007ADBD2BEBB22D005D6950 /* ContactsApp */,
 				C007ADBC2BEBB22D005D6950 /* Products */,
+				C0C96B692BFCA1190012A9FE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +101,7 @@
 		C007ADDC2BEBC731005D6950 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				C0C96B6F2BFCA1D60012A9FE /* viewmodel */,
 				C007ADDD2BEBC743005D6950 /* tableview */,
 			);
 			path = ui;
@@ -106,9 +118,35 @@
 		C007ADE02BEBCC2D005D6950 /* entity */ = {
 			isa = PBXGroup;
 			children = (
+				C0C96B6C2BFCA1970012A9FE /* Repo */,
 				C007ADE12BEBCC7A005D6950 /* Contacts.swift */,
 			);
 			path = entity;
+			sourceTree = "<group>";
+		};
+		C0C96B692BFCA1190012A9FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C0C96B6C2BFCA1970012A9FE /* Repo */ = {
+			isa = PBXGroup;
+			children = (
+				C0C96B6D2BFCA1AE0012A9FE /* ContactsRepository.swift */,
+			);
+			path = Repo;
+			sourceTree = "<group>";
+		};
+		C0C96B6F2BFCA1D60012A9FE /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				C0C96B702BFCA1F90012A9FE /* HomepageViewModel.swift */,
+				C0C96B722BFCA20D0012A9FE /* ContactRegisterViewModel.swift */,
+				C0C96B742BFCA2200012A9FE /* ContactInfoViewModel.swift */,
+			);
+			path = viewmodel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +165,9 @@
 			dependencies = (
 			);
 			name = ContactsApp;
+			packageProductDependencies = (
+				C0C96B6A2BFCA1190012A9FE /* RxSwift */,
+			);
 			productName = ContactsApp;
 			productReference = C007ADBB2BEBB22D005D6950 /* ContactsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -155,6 +196,9 @@
 				Base,
 			);
 			mainGroup = C007ADB22BEBB22D005D6950;
+			packageReferences = (
+				C0C96B682BFCA0FF0012A9FE /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = C007ADBC2BEBB22D005D6950 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -183,8 +227,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C007ADC32BEBB22D005D6950 /* Homepage.swift in Sources */,
+				C0C96B752BFCA2200012A9FE /* ContactInfoViewModel.swift in Sources */,
 				C007ADBF2BEBB22D005D6950 /* AppDelegate.swift in Sources */,
+				C0C96B6E2BFCA1AE0012A9FE /* ContactsRepository.swift in Sources */,
 				C007ADDF2BEBC78E005D6950 /* ContactsCell.swift in Sources */,
+				C0C96B732BFCA20D0012A9FE /* ContactRegisterViewModel.swift in Sources */,
+				C0C96B712BFCA1F90012A9FE /* HomepageViewModel.swift in Sources */,
 				C007ADD72BEBB3F3005D6950 /* ContactRegisterVC.swift in Sources */,
 				C007ADC12BEBB22D005D6950 /* SceneDelegate.swift in Sources */,
 				C007ADDA2BEBB470005D6950 /* ContactInfoVC.swift in Sources */,
@@ -409,6 +457,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C0C96B682BFCA0FF0012A9FE /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C0C96B6A2BFCA1190012A9FE /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0C96B682BFCA0FF0012A9FE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C007ADB32BEBB22D005D6950 /* Project object */;
 }

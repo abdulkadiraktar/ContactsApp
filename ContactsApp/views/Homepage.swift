@@ -13,18 +13,23 @@ class Homepage: UIViewController { //SEARCHTEXT METODU İÇİN
     @IBOutlet weak var searchBar: UISearchBar!
     var contactList = [Contacts]()
     
+    var viewModel = HomepageViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self //searchbarın func ile bağlanması için
         contactTableView.delegate = self // bu sayfaya bağlantı
         contactTableView.dataSource = self
-        
-        let c1 = Contacts(contact_id: 1, contact_name: "Kadir", contact_phone: "541 364 5521")
-        let c2 = Contacts(contact_id: 2, contact_name: "Hilal", contact_phone: "544 544 2323")
-        let c3 = Contacts(contact_id: 3, contact_name: "Zeynep", contact_phone: "543 623 2376")
-        contactList.append(c1)
-        contactList.append(c2)
-        contactList.append(c3)
+        //dinleme
+        _ = viewModel.contactsList.subscribe(onNext: { list in
+            self.contactList = list
+            self.contactTableView.reloadData() // tableview içeriğini değiştir
+        })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.contactSave()
+        //bu sayfaya dönüldüğünde veriler yüklenmiş olacak
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetail" {
@@ -39,7 +44,7 @@ class Homepage: UIViewController { //SEARCHTEXT METODU İÇİN
 
 extension Homepage :UISearchBarDelegate { //karmaşıklık olmaması için protocol
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("Contact search: \(searchText)")
+        viewModel.search(searchWord: searchText)
     }
 }
 extension Homepage: UITableViewDelegate, UITableViewDataSource {
@@ -55,6 +60,7 @@ extension Homepage: UITableViewDelegate, UITableViewDataSource {
         cell.contactPhoneLabel.text = contact.contact_phone
         return cell
     }
+   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { //seçim yapınca oluşan metod
         let contact = contactList[indexPath.row]
         performSegue(withIdentifier: "toDetail", sender: contact)
@@ -71,7 +77,7 @@ extension Homepage: UITableViewDelegate, UITableViewDataSource {
             alert.addAction(deleteAction)
             
             let yesAction = UIAlertAction(title: "Yes", style: .destructive){ _ in
-                print("Contact Delete : \(contact.contact_id!)")
+                self.viewModel.delete(contact_id: contact.contact_id!)
             }
             alert.addAction(yesAction)
             

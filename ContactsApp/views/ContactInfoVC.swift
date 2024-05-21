@@ -14,6 +14,8 @@ class ContactInfoVC: UIViewController {
     
     var contact:Contacts?
     
+    var viewModel = ContactInfoViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,12 +28,10 @@ class ContactInfoVC: UIViewController {
 
     @IBAction func editButton(_ sender: Any) {
         if let c = contact, let name = contactNameText.text, let phone = contactPhoneText.text {
-            edit(contact_id: c.contact_id! , contact_name: name, contact_phone: phone)
+            viewModel.edit(contact_id: c.contact_id! , contact_name: name, contact_phone: phone)
         }
     }
     
-    func edit (contact_id:Int,contact_name:String,contact_phone:String){
-        print("Edit: \(contact_id) - \(contact_name) - \(contact_phone)")
-    }
+   
 
 }
